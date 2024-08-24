@@ -20,7 +20,7 @@ class ObjectDetectionService:
         bounding_boxes = list()
 
         image = cv2.imread(file_path)
-        results = self.object_detection_model.predict(image, conf=0.8)
+        results = self.object_detection_model.predict(image, conf=0.7, imgsz=(384, 480))
         for result in results:
             for box in result.boxes:
                 # get the coordinates
