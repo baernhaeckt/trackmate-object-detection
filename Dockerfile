@@ -11,6 +11,13 @@ ENV PYTHONDONTWRITEBYTECODE=1
 # turns off buffering for easier container logging
 ENV PYTHONUNBUFFERED=1
 
+# Install Common Dependencies
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+    ffmpeg \
+    libsm6 \
+    libxext6
+
 # install pip requirements
 WORKDIR /tmp
 RUN pip install poetry

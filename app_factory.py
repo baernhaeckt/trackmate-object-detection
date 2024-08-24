@@ -8,7 +8,7 @@ from helpers.logger import logger
 
 def app_factory() -> FastAPI:
     # Init fast api
-    app: FastAPI = FastAPI(title="Instructions Service")
+    app: FastAPI = FastAPI(title="Object Detection Service")
 
     # Add middleware
     app.add_middleware(
