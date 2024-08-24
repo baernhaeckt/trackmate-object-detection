@@ -5,7 +5,7 @@ from ultralytics import YOLO
 
 class ObjectDetectionService:
     def __init__(self):
-        self.object_detection_model = YOLO("./../model/yolov10n.pt")
+        self.object_detection_model = YOLO("./../model/yolov8n.pt")
 
     @staticmethod
     def _distance_calculator(box, img: np.ndarray) -> float:
