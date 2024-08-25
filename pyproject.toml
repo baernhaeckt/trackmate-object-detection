@@ -12,6 +12,9 @@ uvicorn = "^0.30.6"
 pydantic-settings = "^2.4.0"
 ultralytics = "^8.2.81"
 python-multipart = "^0.0.9"
+onnx = "^1.16.2"
+onnxruntime = "^1.19.0"
+onnxslim = "^0.1.32"
 
 
 [tool.poetry.group.dev.dependencies]
