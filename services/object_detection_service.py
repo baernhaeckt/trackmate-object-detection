@@ -6,8 +6,6 @@ from ultralytics import YOLO
 class ObjectDetectionService:
     def __init__(self):
         self.object_detection_model = YOLO("./../model/yolov8n.pt")
-        export_path = self.object_detection_model.export(format="onnx", dynamic=True, simplify=True)
-        self.onnx_model = YOLO(export_path)
 
     @staticmethod
     def _distance_calculator(box, img: np.ndarray) -> float:
@@ -22,7 +20,7 @@ class ObjectDetectionService:
         bounding_boxes = list()
 
         image = cv2.imread(file_path)
-        results = self.onnx_model(image, conf=0.7, stream=True)
+        results = self.object_detection_model.predict(image, conf=0.7, imgsz=480, stream=True)
         for result in results:
             for box in result.boxes:
                 # get the coordinates
